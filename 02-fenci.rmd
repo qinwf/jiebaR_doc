@@ -20,11 +20,33 @@ mixseg[c("这是第一行文本。","这是第二行文本。")]  ### 自动判�
 ### 保留符号
 
 ```{r}
-mixseg$symbols = TRUE
+mixseg$symbol = TRUE
 mixseg$bylines = FALSE
 mixseg[c("Hi，这是第一行文本。")]  ### 自动判断输入文件编码模式，默认文件输出在同目录下。
+mixseg$symbol = FALSE ### 重设
 ```
 
+### 添加新词
+
+```{r}
+mixseg["这是一个新词"]
+new_user_word(mixseg, "这是一个新词", "n")
+mixseg["这是一个新词"]
+```
+
+### 添加停止词
+
+```{r, include=FALSE}
+rm(mixseg)
+gc()
+```
+
+```{r}
+readLines("stop.txt")
+mixseg = worker(stop_word = "stop.txt")
+new_user_word(mixseg, "停止词", "n")
+mixseg["这是一个停止词"]
+```
 
 ### 对文件进行分词
 
