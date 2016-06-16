@@ -1,0 +1,11 @@
+_book/
+log/
+docs/
+local/
+output/
+*.local.*
+.idea/
+.RData
+.Rproj.user/
+.Rhistory
+.Rproj.user
