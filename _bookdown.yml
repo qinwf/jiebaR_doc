@@ -1,0 +1,7 @@
+book_filename: bookdown
+chapter_name: ""
+repo: https://github.com/qinwf/jiebaR_doc/
+output_dir: _book
+clean: [packages.bib, bookdown.bbl]
+
+before_chapter_script: "_common.R"

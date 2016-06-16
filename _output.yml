@@ -1,0 +1,31 @@
+bookdown::gitbook:
+  css: css/style.css
+  split_by: section
+  config:
+    toc:
+      collapse: subsection
+      before: |
+        <li><a href="./">jiebaR 中文分词教程</a></li>
+      after: |
+        <li><a href="https://jiebaR.qinwf.com/" target="blank">Build with R bookdown</a></li>
+    download: [epub, mobi]
+    edit:
+      link: https://github.com/qinwf/jiebaR_doc/edit/master/%s
+      text: "Edit"
+    fontsettings:
+      family: sans
+    sharing:
+      weibo: yes
+  includes:
+    in_header: html/header.htm
+    after_body: html/body.htm
+bookdown::html_chapters:
+  css: [css/style.css, css/toc.css]
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+  keep_tex: yes
+  latex_engine: xelatex
+  citation_package: natbib
+bookdown::epub_book:
+  stylesheet: css/style.css

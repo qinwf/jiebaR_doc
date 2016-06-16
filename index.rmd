@@ -1,0 +1,26 @@
+--- 
+title: "jiebaR 中文分词教程"
+knit: "bookdown::render_book"
+date: "`r paste('更新于 ',Sys.Date())`"
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+site: true
+description: "jiebaR 中文分词教程"
+url: 'https\://jiebaR.qinwf.com'
+github-repo: qinwf/jiebaR_doc
+---
+
+
+# 简介
+
+<img width="0" height="0" src="./Rlogo.png"></img>
+
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE, formatR.indent = 2)
+library(methods)
+library(jiebaR)
+set.seed(100)
+```
