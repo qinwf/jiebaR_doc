@@ -21,6 +21,8 @@ before_install:
   - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
   - chmod 755 ./travis-tool.sh
   - ./travis-tool.sh bootstrap
+  - ./travis-tool.sh install_r_binary Rcpp
+  - ./travis-tool.sh install_r jiebaR
   - sudo apt-get install libfreetype6 libfreetype6-dev
   - sudo apt-get install libfontconfig1 libfontconfig1-dev
   - curl -Lo /tmp/texlive.tar.gz https://github.com/yihui/ubuntu-bin/releases/download/latest/texlive.tar.gz
