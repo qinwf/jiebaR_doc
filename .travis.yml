@@ -2,61 +2,53 @@ language: c
 addons:
   apt:
     packages:
-      - libcurl4-openssl-dev
-      - libelf-dev
-      - libdw-dev
-
+    - libcurl4-openssl-dev
+    - libelf-dev
+    - libdw-dev
 sudo: required
 dist: trusty
-
-
 env:
   global:
-  # override the default `--features unstable` used for the nightly branch (optional)
-  - secure: EWp9OW8NsoTNfjExo5QT/L02ezDm21OuE2nXtG4iUKgwZFvFcvkjXyXacHnvGP0WdiB2tRiNpX/yJn0cJ8tm14+d1K0Bi3NZk8VyGVRkNz5h+FI6t6+DDVp5u30xVm7CYEd7ztn2V2eXK6E6LmAFh3dGKBBg8Zz4vh2dz3Lrd8FdVEJKytPA6ENPNJiZMoIPKcVP8AVLNtu6JeUoPK0xO91KMfMdzStHxeIKybqqHqKPJ5jF2DcuqFD4DsfTxVq5SvjKrOez1nvCov5LxjixTGp9WqurUcVNitwKdv2/NWhtpCMhMLu9Nzl4A/wPIALKkWPJlKxQVI1aYpciIM9cEdhhIFn+/qpHeXlmsN1+83GWU6MBtyhGXB0eI7qHaSyOD9Na85kykz4ivbX6QyJs9sKeXewEABK+UoHUSAPxuXd/yP3zwWq8GBnn2zAzNq89PmmGlFw/WOYotby9P6sT73XDoBQh7bsw1hIXMGVf8UNWf/QV83eJXGMYm3eqgVng9+4wkNp/VmikMXmsQvtrcCr+x9nyvzulLfGqK59EMnnG1HSMOufFrnZI6iE6NLdIJUzOIIP4/jYR6pKxff8SMXm7Mkhq3WKtKGagpwHVPPkuzktpPINj5DDucjzBtL9T2rXRGo8xK/suc8ZBkMBcfpfWEdOnV5j41TbbNpyLK7U=
   - PATH=$HOME/bin:$PATH
   - PHANTOM_JS="phantomjs-2.1.1-linux-x86_64"
-
+  - secure: p5/mqFNUEwjZ9vgZ4tJp0X98MigBTKBt5UJpna87FEhGhUXTlXiPevKL2pB6PIauXOyeyoxE/3Wu1Er9Zjubze2HNSV52wnxlFkS3++o4E/6uW3Xv5a7qwabEGRTm/wXfHXNCslxWAvPpcpy7Y4cYXLefauyw1Z/YhXw7/4uE+UfUT2xLk+m3ZB9mUF6FLYnpROOriFsZ0/5THn2VtJsNg8sT1PHYVX9LZqxHKb/MPG3qZSw3031L2BG3bhcneqvWQIlja+NC+yysZ+Usy6PVeL0TrOGsSF1cRB42K6fxl67jS1tnXZwN3FPF4FPTpH96YHOn8bFc4FlkUQOuOHJvTnzd8TTsOWFSD4IEpLQVf6EyJQ9O78H4oY9+4Oh80cklMTUXGJfsCgTKTxdzKPoXBPI+/6F/cTU4UdlL0XQYj4Xd5S1jSHvRkafP0pGLMXCecfsdBbRFyOE6XNu4MZ6Cy4KmhZ9/MSVZBEYKsWLsrhHcMzTjai3icFQo4a8CPkd1k1UQXzW/n4GamnFCl8tx8e/T3aADfgXJMBLsELhD5D4pdGZoLlR6tH5BCysyXn8d6BDv69KDXdu4Rj1gn+/G7mlSnlSztBMlSkTNefLPs3/1xJsC3zWPDuOWKS8hwmrpvOuyT9OGGFVz3zW75CvqGH+cpkMz6vmO0C57HDX4qQ=
 before_install:
-  - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
-  - chmod 755 ./travis-tool.sh
-  - ./travis-tool.sh bootstrap
-  - ./travis-tool.sh install_r_binary Rcpp
-  - ./travis-tool.sh install_r jiebaR
-  - sudo apt-get install libfreetype6 libfreetype6-dev
-  - sudo apt-get install libfontconfig1 libfontconfig1-dev
-  - curl -Lo /tmp/texlive.tar.gz https://github.com/yihui/ubuntu-bin/releases/download/latest/texlive.tar.gz
-  - tar xzf /tmp/texlive.tar.gz -C ~
-  - export PATH=/$HOME/texlive/bin/x86_64-linux:$PATH
-  - tlmgr update --self
-  - curl -Lo /tmp/pandoc-1.15.2-1-amd64.deb https://github.com/jgm/pandoc/releases/download/1.15.2/pandoc-1.15.2-1-amd64.deb
-  - sudo dpkg -i /tmp/pandoc-1.15.2-1-amd64.deb
-  - sudo apt-get install -f
-
+- curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
+- chmod 755 ./travis-tool.sh
+- "./travis-tool.sh bootstrap"
+- "./travis-tool.sh install_r_binary Rcpp"
+- "./travis-tool.sh install_r jiebaR"
+- sudo apt-get install libfreetype6 libfreetype6-dev
+- sudo apt-get install libfontconfig1 libfontconfig1-dev
+- curl -Lo /tmp/texlive.tar.gz https://github.com/yihui/ubuntu-bin/releases/download/latest/texlive.tar.gz
+- tar xzf /tmp/texlive.tar.gz -C ~
+- export PATH=/$HOME/texlive/bin/x86_64-linux:$PATH
+- tlmgr update --self
+- curl -Lo /tmp/pandoc-1.15.2-1-amd64.deb https://github.com/jgm/pandoc/releases/download/1.15.2/pandoc-1.15.2-1-amd64.deb
+- sudo dpkg -i /tmp/pandoc-1.15.2-1-amd64.deb
+- sudo apt-get install -f
 install:
-  - ./travis-tool.sh install_r_binary Rcpp RCurl stringi plyr dplyr DT
-  # - ./travis-tool.sh install_r htmltools knitr miniUI rmarkdown yaml servr rsconnect htmlwidgets webshot
-  - ./travis-tool.sh install_github rstudio/bookdown
-  - wget https://github.com/wertion/r-travis-mac/releases/download/v0.1/phantomjs-2.1.1-linux-x86_64.tar.bz2
-  - sudo tar xvjf $PHANTOM_JS.tar.bz2
-  - sudo mv $PHANTOM_JS /usr/local/share
-  - sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
-  - cd "$TRAVIS_BUILD_DIR"
-  - Rscript _render.R
-
+- "./travis-tool.sh install_r_binary Rcpp RCurl stringi plyr dplyr DT"
+- "./travis-tool.sh install_github rstudio/bookdown"
+- wget https://github.com/wertion/r-travis-mac/releases/download/v0.1/phantomjs-2.1.1-linux-x86_64.tar.bz2
+- sudo tar xvjf $PHANTOM_JS.tar.bz2
+- sudo mv $PHANTOM_JS /usr/local/share
+- sudo ln -sf /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+- cd "$TRAVIS_BUILD_DIR"
+- Rscript _render.R
 script:
-  - # This generates a `web` directory containing the website.
-  - cp ./CNAME ./_book/CNAME
-  - cd _book
-  - rm -rf _bookdown_files
-  - git init
-  - git checkout -b gh-pages
-  - git add .
-  - git -c user.name='travis' -c user.email='travis@travis.travis' commit -m update-doc
-  - # Make sure to make the output quiet, or else the API token will leak!
-  - # This works because the API key can replace your password.
-  - git push --force --quiet "https://qinwf:$GITHUB_API_KEY@github.com/qinwf/jiebaR_doc.git" gh-pages > /dev/null 2>&1
-
+- 
+- cp ./CNAME ./_book/CNAME
+- cd _book
+- rm -rf _bookdown_files
+- git init
+- git checkout -b gh-pages
+- git add .
+- git -c user.name='travis' -c user.email='travis@travis.travis' commit -m update-doc
+- 
+- 
+- git push --force --quiet "https://qinwf:$GITHUB_API_KEY@github.com/qinwf/jiebaR_doc.git"
+  gh-pages > /dev/null 2>&1
 notifications:
   email:
     on_success: change
