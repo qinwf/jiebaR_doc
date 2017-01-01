@@ -10,9 +10,7 @@ install.packages("jiebaR")
 
 ```{r,eval=TRUE}
 library("jiebaR")
-mixseg = worker()
-mixseg = worker()
-segment("这是一段测试文本", mixseg)
+
 ```
 
 ## 测试版
@@ -27,6 +25,5 @@ install_github("qinwf/jiebaR")
 
 ```{r, eval=TRUE}
 library("jiebaR")
-mixseg = worker()
-segment("这是一段测试文本", mixseg)
+
 ```

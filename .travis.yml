@@ -11,7 +11,7 @@ env:
   global:
   - PATH=$HOME/bin:$PATH
   - PHANTOM_JS="phantomjs-2.1.1-linux-x86_64"
-  - secure: p5/mqFNUEwjZ9vgZ4tJp0X98MigBTKBt5UJpna87FEhGhUXTlXiPevKL2pB6PIauXOyeyoxE/3Wu1Er9Zjubze2HNSV52wnxlFkS3++o4E/6uW3Xv5a7qwabEGRTm/wXfHXNCslxWAvPpcpy7Y4cYXLefauyw1Z/YhXw7/4uE+UfUT2xLk+m3ZB9mUF6FLYnpROOriFsZ0/5THn2VtJsNg8sT1PHYVX9LZqxHKb/MPG3qZSw3031L2BG3bhcneqvWQIlja+NC+yysZ+Usy6PVeL0TrOGsSF1cRB42K6fxl67jS1tnXZwN3FPF4FPTpH96YHOn8bFc4FlkUQOuOHJvTnzd8TTsOWFSD4IEpLQVf6EyJQ9O78H4oY9+4Oh80cklMTUXGJfsCgTKTxdzKPoXBPI+/6F/cTU4UdlL0XQYj4Xd5S1jSHvRkafP0pGLMXCecfsdBbRFyOE6XNu4MZ6Cy4KmhZ9/MSVZBEYKsWLsrhHcMzTjai3icFQo4a8CPkd1k1UQXzW/n4GamnFCl8tx8e/T3aADfgXJMBLsELhD5D4pdGZoLlR6tH5BCysyXn8d6BDv69KDXdu4Rj1gn+/G7mlSnlSztBMlSkTNefLPs3/1xJsC3zWPDuOWKS8hwmrpvOuyT9OGGFVz3zW75CvqGH+cpkMz6vmO0C57HDX4qQ=
+  - secure: K4JEwdGeZ9xapjHB9pyohmFh1a73iO2OUAQXLhFKIHSFjcJ0wbse9EK+w2/V60DNv7tnfojwMxabXn7mkoN+ma20ifzI9tq9L3xy/P6qRHjra12ktMtgLPDD4b0DRxeQF8nRRo1ovxtk7X+HWxyO2cirgyXXJtS76JF9VMwNQaZIAv80aH/1pb53g/caFONR7k0hiDvhB7Ba2SGINC/lMLyzYR8ytBf5h1oj3gXj0FaIYyPbSLtbEsvAfkDaP3Cx5b5WXmh/TNOVLfmtkpbkbQXYlrKKshDYSQPa8E2A2Y5iXtHS9rjuKWJUQPMFW6zWrpsrF03puyFXXaLtZU6PBECuack+GEYuff5NWYN+aMJQVwCv300nmsD4yWlRVwjLrtJumU3e8be1wr6ElMTm/se0JHKyFOuhNPV/CwkJZQFpc4xbEG7gIWuUjlCVXwOE7xSXIi5W9aKMcJ4t/wuaBcGXKvZTDU0y40tgBvpLNXg5a4eqI1fOo6mzruBafrXxTeLPnk1UcFyEbWrzldRaMSWsnYy7KMP5dT14uIUY5A0+RbVIsgAyh4jS4oPp6PCmYPJZWYsEN/fY0LMgAaigyk35zlrR80G99UTYzSY5hVYEq+if6LNmmExKh83Xsu55MepVgF0V0XzjDOaMgPNdZbCHcoa2/dVKvueH+ywYFv0=
 before_install:
 - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
 - chmod 755 ./travis-tool.sh
@@ -37,7 +37,7 @@ install:
 - cd "$TRAVIS_BUILD_DIR"
 - Rscript _render.R
 script:
-- 
+-
 - cp ./CNAME ./_book/CNAME
 - cd _book
 - rm -rf _bookdown_files
@@ -45,8 +45,8 @@ script:
 - git checkout -b gh-pages
 - git add .
 - git -c user.name='travis' -c user.email='travis@travis.travis' commit -m update-doc
-- 
-- 
+-
+-
 - git push --force --quiet "https://qinwf:$GITHUB_API_KEY@github.com/qinwf/jiebaR_doc.git"
   gh-pages > /dev/null 2>&1
 notifications:
