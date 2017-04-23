@@ -1,0 +1,7 @@
+[
+["index.html", "jiebaR 中文分词 1 简介", " jiebaR 中文分词 更新于 2017-04-23 1 简介 遇到了问题？ 发送邮件至用户邮件列表 jiebaR@googlegroups.com 访问 https://groups.google.com/d/forum/jiebaR 在 GitHub 提交 issues。 "],
+["section-2.html", "2 安装 ", " 2 安装 "],
+["section-2-1.html", "2.1 稳定版", " 2.1 稳定版 通过CRAN安装: install.packages(&quot;jiebaR&quot;) library(&quot;jiebaR&quot;) "],
+["section-2-2.html", "2.2 测试版", " 2.2 测试版 同时还可以通过Github安装[开发版]，建议使用 gcc &gt;= 4.9 编译，Windows需要安装 Rtools ： library(devtools) install_github(&quot;qinwf/jiebaRD&quot;) install_github(&quot;qinwf/jiebaR&quot;) library(&quot;jiebaR&quot;) -->"],
+["section-3.html", "3 分词", " 3 分词 "]
+]
