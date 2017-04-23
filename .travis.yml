@@ -37,7 +37,6 @@ install:
 - cd "$TRAVIS_BUILD_DIR"
 - Rscript _render.R
 script:
-- cp ./CNAME ./_book/CNAME
 - cd _book
 - rm -rf _bookdown_files
 - git init
