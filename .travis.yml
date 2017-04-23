@@ -37,7 +37,6 @@ install:
 - cd "$TRAVIS_BUILD_DIR"
 - Rscript _render.R
 script:
--
 - cp ./CNAME ./_book/CNAME
 - cd _book
 - rm -rf _bookdown_files
@@ -45,10 +44,9 @@ script:
 - git checkout -b gh-pages
 - git add .
 - git -c user.name='travis' -c user.email='travis@travis.travis' commit -m update-doc
--
--
-- git push --force --quiet "https://qinwf:$GITHUB_API_KEY@github.com/qinwf/jiebaR_doc.git"
+- git push --force --quiet "https://qinwf:$GITHUB_API_KEY@github.com/qinwf/jiebaR.git"
   gh-pages > /dev/null 2>&1
+
 notifications:
   email:
     on_success: change

@@ -1,0 +1,63 @@
+# 其他常用包
+
+### cidian
+
+用来转换搜狗细胞词库
+
+Windows 安装 RTools，设置好对应的环境变量
+
+```r
+install.packages("devtools")
+install.packages("stringi")
+install.packages("pbapply")
+install.packages("Rcpp")
+install.packages("RcppProgress")
+library(devtools)
+install_github("qinwf/cidian")
+```
+
+使用
+
+```
+decode_scel(scel = "细胞词库路径",output = "输出文件路径")
+```
+
+在线版本 
+
+https://cidian.shinyapps.io/shiny-cidian/
+
+暂时不能用, shinyapps.io 上传文件有 bug？
+
+
+### text2vec
+
++ [Analyzing Texts with the text2vec Package](https://cran.r-project.org/web/packages/text2vec/vignettes/text-vectorization.html)
+
++ [GloVe Word Embeddings](https://cran.r-project.org/web/packages/text2vec/vignettes/glove.html)
+
++ [Advanced topics](https://cran.r-project.org/web/packages/text2vec/vignettes/files-multicore.html)
+
+### ropencc
+
+繁简转换需要使用单独的词典包，可以使用 OpenCC 工具实现。R 语言的对应接口有 [ropencc](https://github.com/qinwf/ropencc) 。
+
+OpenCC 開放中文轉換 R 语言接口
+
+```r
+devtools::install_github("qinwf/ropencc")
+ccst = converter(S2T)
+ccst["开放中文转换"]
+ccts = converter(T2S)
+ccts["開放中文轉換"]
+```
+
+### wordcloud2
+
+[wordcloud2](https://github.com/lchiffon/wordcloud2) - R interface to wordcloud for data visualization.
+
+```r
+wordcloud2(demoFreqC, size = 2, fontFamily = "微软雅黑",
+           color = "random-light", backgroundColor = "grey")
+```
+
+![wordcloud2](https://raw.githubusercontent.com/Lchiffon/wordcloud2/6767baa82bc4c925d6e8da1701e04afb8261a5a7/examples/img/4.png)

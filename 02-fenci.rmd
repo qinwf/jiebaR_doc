@@ -1,1 +1,142 @@
 # 分词
+
+### 对文本分词
+
+```{r}
+分词器 = worker() 
+segment("这是一段测试文本！", 分词器)
+```
+
+### 分行输出 $bylines
+
+```{r}
+分词器 = worker() 
+分词器$bylines = TRUE
+
+segment(c("这是第一行文本。","这是第二行文本。"), 分词器)
+```
+
+在新建 worker 时设置 bylines
+
+```{r}
+分词器 = worker(bylines = TRUE) 
+
+segment(c("这是第一行文本。","这是第二行文本。"), 分词器)
+```
+
+下面是不分行输出的结果
+
+```{r}
+分词器 = worker() 
+
+segment(c("这是第一行文本。","这是第二行文本。"), 分词器)
+```
+
+### 保留符号 $symbol
+
+```{r}
+分词器 = worker() 
+分词器$symbol = TRUE
+
+segment(c("Hi，这是第一行文本。"), 分词器)
+```
+
+重设为不保留符号
+
+```{r}
+分词器$symbol = FALSE 
+segment(c("Hi，这是第一行文本。"), 分词器)
+```
+
+在新建 worker 时设置 symbol
+
+```{r}
+分词器 = worker(symbol = TRUE)
+segment(c("Hi，这是第一行文本。"), 分词器)
+segment(c("。，。；las"), 分词器)
+
+分词器 = worker(symbol = FALSE)
+segment(c("Hi，这是第一行文本。"), 分词器)
+segment(c("。，。；las"), 分词器)
+
+```
+
+### 添加新词到已经新建的分词器中 new_user_word()
+
+```{r}
+分词器 = worker()
+segment("这是一个新词", 分词器)
+
+# 第三个参数 "n" 代表新词的词性标记
+new_user_word(分词器, "这是一个新词", "n") 
+segment("这是一个新词", 分词器)
+```
+
+### 添加停止词 worker(stop_word = "...")
+
+!!!! 对于分词，请不要修改默认加载的停止词文本，即 jiebaR::STOPPATH，请使用自定义的停止词路径。
+
+目录下有一个 stop.txt 文件，内容如下
+
+```{r}
+readLines("stop.txt")
+```
+
+```{r}
+分词器  = worker(stop_word = "stop.txt")
+segment("这是一个停止词", 分词器)
+```
+
+### 对文件进行分词 - 使用 readLines 和 writeLines
+
+使用 readLines 函数读取对应文本，
+
+```{r}
+texts = readLines("./index.rmd", encoding="UTF-8")
+分词器$bylines = TRUE
+分词结果 = segment(texts, 分词器)
+```
+
+使用 writeLines 写入文件
+
+```{r}
+合并各行分词结果 =sapply(分词结果, function(x){ paste(x, collapse = " ")})
+writeLines(合并各行分词结果, "./某个文件.txt")
+file.remove("./某个文件.txt")
+```
+
+！！！！！乱码预警
+
+Windows 下 writeLines 保存的文本可能会为乱码，
+
+对应的解决方案为 writeBin + charToRaw
+
+```r
+writeBin(charToRaw("对应文本还有一个换行符\n"), "./某个文件.txt")
+```
+
+### 对文件进行分词 - 自动检测路径
+
+当前目录下又一个 index.rmd 的文件
+
+```{r}
+outputfile = segment("./index.rmd", 分词器)
+readLines(outputfile, 5)
+file.remove(outputfile)
+```
+
+指定输出路径
+
+```{r}
+分词器$output = "某个文件"
+segment("./index.rmd", 分词器)
+readLines("某个文件", 5)
+file.remove("某个文件")
+```
+
+### 关闭自动检测路径 $write = "NOFILE"
+
+```{r}
+分词器$write = "NOFILE"
+head(segment("./index.rmd", 分词器))
+```

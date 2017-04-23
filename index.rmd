@@ -1,5 +1,5 @@
 --- 
-title: "jiebaR 中文分词"
+title: "jiebaR 中文分词文档"
 knit: "bookdown::render_book"
 date: "`r paste('更新于 ',Sys.Date())`"
 documentclass: book
@@ -11,7 +11,6 @@ description: "jiebaR 中文分词"
 url: 'https\://jiebaR.qinwf.com'
 github-repo: qinwf/jiebaR_doc
 ---
-
 
 # 简介
 
@@ -25,10 +24,37 @@ library(jiebaR)
 set.seed(100)
 ```
 
-遇到了问题？
+通过 CRAN 安装：
 
-+ 发送邮件至用户邮件列表　[jiebaR@googlegroups.com](mailto:jiebaR@googlegroups.com)
-+ 访问　https://groups.google.com/d/forum/jiebaR
-+ 在 [GitHub](https://github.com/qinwf/jiebaR) 提交 issues。　
+```r
+install.packages("jiebaR")
+```
+
+新建一个分词器
+
+```{r}
+library(jiebaR)
+分词器 = worker() 
+```
+
+然后就是分词了，
+
+```{r}
+segment("我是一段文本", 分词器)
+```
+
+就是这么简单！
+
+## 遇到了问题？
+
+请将能够**重复**这个问题的对应**代码**加上对应的**数据（文本）**的**源文件**
+
++ 发送至用户邮件列表　[jiebaR@googlegroups.com](mailto:jiebaR@googlegroups.com)
++ 或者访问　https://groups.google.com/d/forum/jiebaR
++ 或者在 [GitHub](https://github.com/qinwf/jiebaR) 提交 issues。　
 
 <HR />
+
+## 旧版文档
+
+[旧版文档](https://qinwenfeng.com/doc/jiebaR_v0_8/)
